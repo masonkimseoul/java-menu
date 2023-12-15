@@ -32,10 +32,10 @@ public enum Menu {
         return menus;
     }
 
-    public static Menu fromCategoryNumber(int categoryIndex) {
+    public static String fromCategoryNumber(int categoryIndex) {
         for (Menu menu : Menu.values()) {
             if (menu.getCategoryIndex() == categoryIndex) {
-                return menu;
+                return menu.getCategoryName();
             }
         }
         return null;
