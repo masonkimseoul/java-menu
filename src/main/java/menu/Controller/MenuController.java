@@ -42,10 +42,10 @@ public class MenuController {
         try {
             OutputView.printGetAvoidingMenuMsg(coach);
             avoidingMenus = InputView.getAvoidingMenus();
+            return avoidingMenus;
         } catch (IllegalArgumentException e) {
-            avoidingMenus = getCoachesAvoidingMenus(coach);
+            return getCoachesAvoidingMenus(coach);
         }
-        return avoidingMenus;
     }
 
     public void getCoaches() {
@@ -60,8 +60,8 @@ public class MenuController {
 
     private void selectMenu(Coach coach, List<String> menus) {
         String rcmMenu = RandomRecommendation.recommendMenu(menus);
-        while (!coach.isAlreadyRecommended(rcmMenu)
-                && !coach.isMenusForAvoid(rcmMenu)) {
+        while (coach.isAlreadyRecommended(rcmMenu)
+                || coach.isMenusForAvoid(rcmMenu)) {
             rcmMenu = RandomRecommendation.recommendMenu(menus);
         }
         coach.addRecommendedMenu(rcmMenu);
