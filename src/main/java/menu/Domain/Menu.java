@@ -49,4 +49,14 @@ public enum Menu {
         }
         return null;
     }
+
+    public static boolean isContainsMenu(String menuName) {
+        for (Menu menuByCategory : Menu.values()) {
+            List<String> menus = menuByCategory.getMenus();
+            if (menus.contains(menuName)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
