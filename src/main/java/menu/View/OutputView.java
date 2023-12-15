@@ -44,7 +44,7 @@ public class OutputView {
         System.out.print(LINE_SEPARATOR + formattedString);
     }
 
-    public static void PrintRecommendedMenuMsg(String coach, List<String> menus) {
+    public static void printRecommendedMenuMsg(String coach, List<String> menus) {
         String formattedString = String.format(PRINT_RECOMMENDED_MENU,
                 coach,
                 menus.get(0),
